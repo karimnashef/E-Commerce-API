@@ -52,7 +52,3 @@ A fully functional **E-Commerce REST API** built with **Laravel**, featuring aut
 ```bash
 git clone https://github.com/karimnashef/E-Commerce-API.git
 cd E-Commerce-API
-
-```bash
-git clone https://github.com/karimnashef/E-Commerce-API.git
-cd E-Commerce-API

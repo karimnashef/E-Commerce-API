@@ -1,0 +1,45 @@
+// Firebase
+
+composer require kreait/laravel-firebase
+
+php artisan vendor:publish --provider="Kreait\Laravel\Firebase\ServiceProvider"
+
+FIREBASE_CREDENTIALS=storage/app/firebase/krevix-store-firebase-adminsdk-fbsvc-2aba2d53ab.json
+
+use Kreait\Firebase\Factory;
+
+Route::get('/firebase-test', function () {
+
+    $factory = (new Factory)
+        ->withServiceAccount(storage_path('app/firebase/krevix-store-firebase-adminsdk-fbsvc-2aba2d53ab.json'));
+
+    $messaging = $factory->createMessaging();
+
+    return response()->json([
+        'message' => 'Firebase connected successfully'
+    ]);
+});
+
+// Supabase
+
+use Illuminate\Support\Facades\DB;
+
+try {
+    // Try a simple query to test the connection
+    DB::connection('supabase')->select('SELECT 1');
+    echo "Supabase connection test successful ✅";
+} catch (\Exception $e) {
+    echo "Supabase connection test failed ❌: " . $e->getMessage();
+}
+
+// Telegram Bot
+
+ Http::post("https://api.telegram.org/bot8508486868:AAHKYvqCmtgBuUAlSDsVFqc2kVODt4FJqV0/sendMessage", [
+        'chat_id' => 884492816,
+        'text' => "Temporary password: " . $generatedPassword
+        ]);
+
+        https://t.me/YourBot?start=USERNAME
+        https://api.telegram.org/botYOUR_BOT_TOKEN/setWebhook?url=https://1234abcd.ngrok.io/api/v1/telegram/webhook
+
+https://t.me/FlashDriverKareemBot?start=USERNAME
